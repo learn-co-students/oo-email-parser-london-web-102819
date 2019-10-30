@@ -11,28 +11,7 @@ class EmailAddressParser
     end
 
     def parse
-        
-        emails = @email_addresses
-
-        if emails =~ /, / 
-            email_list = emails.split(", ")
-        else
-            email_list = emails.split(" ")
-        end
-
-        new_list = []
-
-        email_list.each do |email|
-            if email.include?(" ")
-                new_list = new_list + email.split(" ")
-            else
-                new_list << email
-            end
-        end
-
-        new_list.uniq
-
-        
+        @email_addresses.split(/, | /).uniq
     end
 
 end
